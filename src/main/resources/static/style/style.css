@@ -3,8 +3,10 @@ body {
 }
 
 .center {
-    width: 650px;
+    max-width: 650px;
     margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 header {
@@ -13,12 +15,14 @@ header {
 
 header h1 {
     position: absolute;
-    width: 650px;
+    width: 100%;
+    text-align: center;
     top: 0;
+    left: 0;
 }
 
 #header-background-image {
-    width: 650px;
+    max-width: 650px;
 }
 
 .info-box {
