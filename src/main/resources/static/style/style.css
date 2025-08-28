@@ -1,0 +1,30 @@
+.center {
+    width: 650px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    position: absolute;
+    width: 650px;
+    top: 0;
+}
+
+#header-background-image {
+    width: 650px;
+}
+
+.info-box {
+    background-color: blanchedalmond;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: cadetblue;
+    padding: 5px;
+    margin-top: 10px;
+}
