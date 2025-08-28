@@ -1,5 +1,6 @@
 body {
     font-family: "Poppins", sans-serif;
+    color: #222222;
 }
 
 .center {
@@ -31,8 +32,8 @@ header h1 {
     margin-top: 10px;
 }
 
-article hr {
-    border: 1px dashed;
+.info-box hr {
+    border: 1px solid #222222;
 }
 
 footer {
