@@ -36,6 +36,10 @@ header h1 {
     border: 1px solid #222222;
 }
 
+.info-box h2 {
+    margin: 5px;
+}
+
 footer {
     background-color: cadetblue;
     padding: 5px;
