@@ -38,7 +38,7 @@ public class AttractionController {
         if (attraction.getName() == null)  {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>((attraction.getName() == null) ? this.service.addAttraction(attraction) : null, HttpStatus.CREATED);
+        return new ResponseEntity<>(this.service.addAttraction(attraction), HttpStatus.CREATED);
     }
 
     @PostMapping("/update/name/{name}")
