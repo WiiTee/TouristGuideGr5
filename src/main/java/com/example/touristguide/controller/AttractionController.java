@@ -26,8 +26,8 @@ public class AttractionController {
         return new ResponseEntity<>(this.service.getAttractions(), HttpStatus.OK);
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<TouristAttraction> getAttractionByName(@RequestParam String name) {
+    @GetMapping("/{name}")
+    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
         TouristAttraction attraction = this.service.getAttractionByName(name);
         return new ResponseEntity<>(attraction, (attraction == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
