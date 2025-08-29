@@ -28,7 +28,8 @@ public class AttractionController {
 
     @GetMapping("/get")
     public ResponseEntity<TouristAttraction> getAttractionByName(@RequestParam String name) {
-        return new ResponseEntity<>(this.service.getAttractionByName(name), HttpStatus.OK);
+        TouristAttraction attraction = this.service.getAttractionByName(name);
+        return new ResponseEntity<>(attraction, (attraction == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
     //POST
@@ -37,7 +38,7 @@ public class AttractionController {
         if (attraction.getName() == null)  {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(this.service.addAttraction(attraction), HttpStatus.CREATED);
+        return new ResponseEntity<>((attraction.getName() == null) ? this.service.addAttraction(attraction) : null, HttpStatus.CREATED);
     }
 
     @PostMapping("/update/name/{name}")
