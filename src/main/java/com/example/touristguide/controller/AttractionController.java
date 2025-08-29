@@ -43,19 +43,19 @@ public class AttractionController {
 
     @PostMapping("/update/name/{name}")
     public ResponseEntity<TouristAttraction> editAttractionName(@PathVariable String name, @RequestBody TouristAttraction withNewName) {
-        TouristAttraction updated = this.service.editAttractionName(name, withNewName.getName());
-        return new ResponseEntity<>(updated, (updated == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
+        TouristAttraction updatedAttraction = this.service.editAttractionName(name, withNewName.getName());
+        return new ResponseEntity<>(updatedAttraction, (updatedAttraction == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
     @PostMapping("/update/description/{name}")
     public ResponseEntity<TouristAttraction> editAttractionDescription(@PathVariable String name, @RequestBody TouristAttraction withNewDescription) {
-        TouristAttraction updated = this.service.editAttractionDescription(name, withNewDescription.getDescription());
-        return new ResponseEntity<>(updated, (updated == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
+        TouristAttraction updatedAttraction = this.service.editAttractionDescription(name, withNewDescription.getDescription());
+        return new ResponseEntity<>(updatedAttraction, (updatedAttraction == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
     @PostMapping("/delete/{name}")
     public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name) {
-        TouristAttraction toDelete = this.service.deleteAttraction(name);
-        return new ResponseEntity<>(toDelete, (toDelete == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
+        TouristAttraction attractionToDelete = this.service.deleteAttraction(name);
+        return new ResponseEntity<>(attractionToDelete, (attractionToDelete == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 }
