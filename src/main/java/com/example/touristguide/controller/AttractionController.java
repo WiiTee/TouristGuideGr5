@@ -47,8 +47,8 @@ public class AttractionController {
     }
 
     @PostMapping("/update/description/{name}")
-    public ResponseEntity<TouristAttraction> editAttractionDescription(@PathVariable String name, @RequestParam String newDescription) {
-        TouristAttraction updated = this.service.editAttractionDescription(name, newDescription);
+    public ResponseEntity<TouristAttraction> editAttractionDescription(@PathVariable String name, @RequestBody TouristAttraction withNewDescription) {
+        TouristAttraction updated = this.service.editAttractionDescription(name, withNewDescription.getDescription());
         return new ResponseEntity<>(updated, (updated == null) ? HttpStatus.BAD_REQUEST : HttpStatus.OK);
     }
 
