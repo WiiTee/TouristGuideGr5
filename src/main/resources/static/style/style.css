@@ -1,6 +1,7 @@
 body {
     font-family: "Poppins", sans-serif;
-    color: #222222;
+    color: #16404D;
+    background-color: #FBF5DD;
 }
 
 .center {
@@ -31,7 +32,7 @@ header h1 {
 }
 
 .info-box {
-    background-color: blanchedalmond;
+    background-color: #A6CDC6;
     padding: 15px;
     margin-top: 10px;
     border-radius: 25px;
@@ -46,7 +47,7 @@ header h1 {
 }
 
 footer {
-    background-color: cadetblue;
+    background-color: #DDA853;
     padding: 5px;
     margin-top: 10px;
     border-top-left-radius: 25px;
