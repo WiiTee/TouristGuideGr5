@@ -23,7 +23,9 @@ header h1 {
 }
 
 #header-background-image {
-    max-width: 850px;
+    width: 850px;
+    height: 300px;
+    object-fit: fill;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 }
