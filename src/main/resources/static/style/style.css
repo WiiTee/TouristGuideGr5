@@ -34,7 +34,7 @@ header h1 {
 .info-box {
     background-color: #A6CDC6;
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 25px;
 }
 
@@ -49,7 +49,7 @@ header h1 {
 footer {
     background-color: #DDA853;
     padding: 15px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
