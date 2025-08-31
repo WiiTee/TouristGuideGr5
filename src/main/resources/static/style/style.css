@@ -32,6 +32,10 @@ header h1 {
     border-bottom-right-radius: 25px;
 }
 
+a {
+    color: #8a6832;
+}
+
 .info-box {
     background-color: #A6CDC6;
     padding: 15px;
