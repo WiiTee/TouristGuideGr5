@@ -20,7 +20,8 @@ header h1 {
     width: 100%;
     text-align: center;
     font-size: 40px;
-    top: 0;
+    margin: 0;
+    top: 22px;
     left: 0;
 }
 
