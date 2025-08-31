@@ -24,12 +24,15 @@ header h1 {
 
 #header-background-image {
     max-width: 850px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .info-box {
     background-color: blanchedalmond;
     padding: 15px;
     margin-top: 10px;
+    border-radius: 25px;
 }
 
 .info-box hr {
@@ -44,6 +47,8 @@ footer {
     background-color: cadetblue;
     padding: 5px;
     margin-top: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 .poppins-thin {
