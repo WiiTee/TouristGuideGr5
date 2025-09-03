@@ -5,9 +5,11 @@ import com.example.touristguide.service.AttractionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/attractions")
@@ -22,8 +24,10 @@ public class AttractionController {
 
     //GET
     @GetMapping
-    public ResponseEntity<ArrayList<TouristAttraction>> getAttractions() {
-        return new ResponseEntity<>(this.service.getAttractions(), HttpStatus.OK);
+    public String getAttractions(Model model) {
+        List<TouristAttraction> touristAttractions = service.getAttractions();
+        model.addAttribute("attractionsList", touristAttractions);
+        return "showAttractions";
     }
 
     @GetMapping("/{name}")
