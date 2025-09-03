@@ -61,14 +61,24 @@ public class AttractionController {
         return "redirect:/attractions";
     }
 
+    @PostMapping("/{name}/edit")
+    public String editAttractionDescription(@PathVariable String name, Model model) {
+        TouristAttraction attraction = service.getAttractionByName(name);
+        if(attraction == null){
+            throw new IllegalArgumentException("Attraction does not exist");
+        }
+
+        model.addAttribute("attraction", attraction);
+
+        return "updateAttractionForm";
+    }
+
     @PostMapping("/update")
-    public ResponseEntity<TouristAttraction> editAttractionDescription(@RequestBody TouristAttraction withNewDescription) {
-        TouristAttraction updatedAttraction = this.service.editAttractionDescription(withNewDescription.getName(), withNewDescription.getDescription());
+    public String updateAttraction(@RequestBody TouristAttraction withNewDescription){
 
-        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
-        if (updatedAttraction != null) httpResponseCode = HttpStatus.OK;
+        service.editAttractionDescription(withNewDescription.getName(), withNewDescription.getDescription());
 
-        return new ResponseEntity<>(updatedAttraction, httpResponseCode);
+        return "redirect:/attractions";
     }
 
     @PostMapping("/delete/{name}")
