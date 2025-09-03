@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +35,10 @@ public class AttractionController {
     public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
         TouristAttraction attraction = this.service.getAttractionByName(name);
 
-        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
-        if (attraction != null) httpResponseCode = HttpStatus.OK;
+        TouristAttraction attraction = service.getAttractionByName(name);
+        model.addAttribute("byName", attraction);
 
-        return new ResponseEntity<>(attraction, httpResponseCode);
+        return "attractionsList";
     }
 
     //POST
@@ -47,6 +48,11 @@ public class AttractionController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(this.service.addAttraction(attraction), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/save")
+    public String saveAttraction(){
+        return "";
     }
 
     @PostMapping("/update")
