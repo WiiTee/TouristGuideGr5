@@ -1,7 +1,7 @@
 package com.example.touristguide.model;
 
 public class TouristAttraction {
-    private final int id;
+    private int id;
     private String name;
     private String description;
 
@@ -10,6 +10,8 @@ public class TouristAttraction {
         this.name = name;
         this.description = description;
     }
+
+    public TouristAttraction(){}
 
     public String getName() {
         return name;
@@ -29,5 +31,9 @@ public class TouristAttraction {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
