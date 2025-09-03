@@ -22,6 +22,10 @@ public class AttractionService {
         return this.repository.getAttractionByName(name);
     }
 
+    public TouristAttraction getAttractionByNameWithTags(String name){
+        return this.repository.getAttractionByNameWithTags(name);
+    }
+
     public TouristAttraction addAttraction(TouristAttraction attraction) {
         return this.repository.addAttraction(attraction);
     }

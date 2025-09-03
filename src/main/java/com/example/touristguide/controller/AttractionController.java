@@ -1,5 +1,6 @@
 package com.example.touristguide.controller;
 
+import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import com.example.touristguide.service.AttractionService;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,15 @@ public class AttractionController {
         model.addAttribute("byName", attraction);
 
         return "showAttraction";
+    }
+
+    @GetMapping("/{name}/tags")
+    public String getAttractionsByNameWithTags(@PathVariable String name, Model model){
+
+        TouristAttraction attraction = service.getAttractionByNameWithTags(name);
+        model.addAttribute("attraction", attraction);
+
+        return "showTags";
     }
 
     //POST

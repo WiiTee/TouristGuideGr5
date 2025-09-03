@@ -36,6 +36,15 @@ public class AttractionRepository {
         return null;
     }
 
+    public TouristAttraction getAttractionByNameWithTags(String name) {
+
+        for (TouristAttraction attraction : attractions) {
+            if (attraction.getName().equalsIgnoreCase(name)) return attraction;
+        }
+
+        return null;
+    }
+
     private int getNextId() {
         return nextId++;
     }
