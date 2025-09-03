@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 
@@ -22,18 +23,27 @@ public class AttractionController {
 
     //GET
     @GetMapping
-    public ResponseEntity<ArrayList<TouristAttraction>> getAttractions() {
-        return new ResponseEntity<>(this.service.getAttractions(), HttpStatus.OK);
+    public String getAttractions(){
+       return "";
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
-        TouristAttraction attraction = this.service.getAttractionByName(name);
+    @GetMapping("{name}")
+    public String getAttractionsByName(@PathVariable String name, Model model){
 
-        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
-        if (attraction != null) httpResponseCode = HttpStatus.OK;
+        TouristAttraction attraction = service.getAttractionByName(name);
+        model.addAttribute("byName", attraction);
 
-        return new ResponseEntity<>(attraction, httpResponseCode);
+        return "attractionsList";
+    }
+
+    @GetMapping("/{name}/edit")
+    public String editAttractionsByName(){
+        return "";
+    }
+
+    @GetMapping("/add")
+    public String addAttractions(){
+        return "";
     }
 
     //POST
@@ -43,6 +53,11 @@ public class AttractionController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(this.service.addAttraction(attraction), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/save")
+    public String saveAttraction(){
+        return "";
     }
 
     @PostMapping("/update")
@@ -64,4 +79,26 @@ public class AttractionController {
 
         return new ResponseEntity<>(attractionToDelete, httpResponseCode);
     }
+
+        /*
+    @GetMapping
+    public ResponseEntity<ArrayList<TouristAttraction>> getAttractions() {
+        return new ResponseEntity<>(this.service.getAttractions(), HttpStatus.OK);
+    }
+
+    @GetMapping("/{name}")
+    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
+        TouristAttraction attraction = this.service.getAttractionByName(name);
+
+        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
+        if (attraction != null) httpResponseCode = HttpStatus.OK;
+
+        return new ResponseEntity<>(attraction, httpResponseCode);
+    }
+
+    @GetMapping("/{name}/tags")
+    public String getAttractionTagsByName(){
+        return "";
+    }
+    */
 }
