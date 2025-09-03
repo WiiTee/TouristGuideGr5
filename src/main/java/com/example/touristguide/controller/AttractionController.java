@@ -5,10 +5,12 @@ import com.example.touristguide.service.AttractionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/attractions")
@@ -22,8 +24,16 @@ public class AttractionController {
     //mappings
 
     //GET
-    @GetMapping("{name}")
-    public String getAttractionsByName(@PathVariable String name, Model model){
+    @GetMapping
+    public String getAttractions(Model model) {
+        List<TouristAttraction> touristAttractions = service.getAttractions();
+        model.addAttribute("attractionsList", touristAttractions);
+        return "showAttractions";
+    }
+
+    @GetMapping("/{name}")
+    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
+        TouristAttraction attraction = this.service.getAttractionByName(name);
 
         TouristAttraction attraction = service.getAttractionByName(name);
         model.addAttribute("byName", attraction);
