@@ -47,7 +47,6 @@ public class AttractionController {
         return "showTags";
     }
 
-    //POST
     @GetMapping("/add")
     public String addAttraction (Model model) {
         TouristAttraction attractionToAdd = new TouristAttraction();
@@ -55,6 +54,7 @@ public class AttractionController {
         return "newAttractionForm";
     }
 
+    //POST
     @PostMapping("/save")
     public String saveAttraction(@ModelAttribute TouristAttraction attraction){
         service.addAttraction(attraction);
