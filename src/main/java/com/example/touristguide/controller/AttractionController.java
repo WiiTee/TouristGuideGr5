@@ -22,11 +22,6 @@ public class AttractionController {
     //mappings
 
     //GET
-    @GetMapping
-    public String getAttractions(){
-       return "";
-    }
-
     @GetMapping("{name}")
     public String getAttractionsByName(@PathVariable String name, Model model){
 
@@ -34,16 +29,6 @@ public class AttractionController {
         model.addAttribute("byName", attraction);
 
         return "attractionsList";
-    }
-
-    @GetMapping("/{name}/edit")
-    public String editAttractionsByName(){
-        return "";
-    }
-
-    @GetMapping("/add")
-    public String addAttractions(){
-        return "";
     }
 
     //POST
@@ -79,26 +64,4 @@ public class AttractionController {
 
         return new ResponseEntity<>(attractionToDelete, httpResponseCode);
     }
-
-        /*
-    @GetMapping
-    public ResponseEntity<ArrayList<TouristAttraction>> getAttractions() {
-        return new ResponseEntity<>(this.service.getAttractions(), HttpStatus.OK);
-    }
-
-    @GetMapping("/{name}")
-    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
-        TouristAttraction attraction = this.service.getAttractionByName(name);
-
-        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
-        if (attraction != null) httpResponseCode = HttpStatus.OK;
-
-        return new ResponseEntity<>(attraction, httpResponseCode);
-    }
-
-    @GetMapping("/{name}/tags")
-    public String getAttractionTagsByName(){
-        return "";
-    }
-    */
 }
