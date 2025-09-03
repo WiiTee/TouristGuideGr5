@@ -41,6 +41,7 @@ public class AttractionRepository {
     }
 
     public TouristAttraction addAttraction(TouristAttraction attraction) {
+        attraction.setId(nextId);
         attractions.add(attraction);
         return attraction;
     }
