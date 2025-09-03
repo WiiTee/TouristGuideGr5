@@ -28,12 +28,11 @@ public class AttractionController {
     public String getAttractions(Model model) {
         List<TouristAttraction> touristAttractions = service.getAttractions();
         model.addAttribute("attractionsList", touristAttractions);
-        return "showAttractions";
+        return "attractionsList";
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<TouristAttraction> getAttractionByName(@PathVariable String name) {
-        TouristAttraction attraction = this.service.getAttractionByName(name);
+    public String getAttractionsByName(@PathVariable String name, Model model){
 
         TouristAttraction attraction = service.getAttractionByName(name);
         model.addAttribute("byName", attraction);
