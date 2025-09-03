@@ -26,10 +26,6 @@ public class AttractionService {
         return this.repository.addAttraction(attraction);
     }
 
-    public TouristAttraction editAttractionName(String name, String newName){
-        return this.repository.editAttractionName(name, newName);
-    }
-
     public TouristAttraction editAttractionDescription(String name, String newDescription){
         return this.repository.editAttractionDescription(name, newDescription);
     }

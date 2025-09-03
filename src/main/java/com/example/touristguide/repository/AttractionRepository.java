@@ -39,14 +39,6 @@ public class AttractionRepository {
         return attraction;
     }
 
-    public TouristAttraction editAttractionName(String name, String newName) {
-        TouristAttraction attractionToEdit = getAttractionByName(name);
-        if (attractionToEdit != null) {
-            attractionToEdit.setName(newName);
-        }
-        return attractionToEdit;
-    }
-
     public TouristAttraction editAttractionDescription(String attractionName, String newDescription) {
         TouristAttraction attractionToEdit = getAttractionByName(attractionName);
         if (attractionToEdit != null) {
