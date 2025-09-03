@@ -5,6 +5,7 @@ import com.example.touristguide.service.AttractionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -37,12 +38,11 @@ public class AttractionController {
     }
 
     //POST
-    @PostMapping("/add")
-    public ResponseEntity<TouristAttraction> addAttraction (@RequestBody TouristAttraction attraction) {
-        if (attraction.getName() == null || attraction.getName().isEmpty())  {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(this.service.addAttraction(attraction), HttpStatus.CREATED);
+    @GetMapping("/add")
+    public String addAttraction (Model model) {
+        TouristAttraction attractionToAdd = new TouristAttraction();
+        model.addAttribute("attraction", attractionToAdd);
+        return "newAttractionForm";
     }
 
     @PostMapping("/update")
