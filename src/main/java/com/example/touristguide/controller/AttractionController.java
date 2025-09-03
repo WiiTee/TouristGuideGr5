@@ -7,9 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.ui.Model;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -65,12 +62,8 @@ public class AttractionController {
     }
 
     @PostMapping("/delete/{name}")
-    public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name) {
-        TouristAttraction attractionToDelete = this.service.deleteAttraction(name);
-
-        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
-        if (attractionToDelete != null) httpResponseCode = HttpStatus.OK;
-
-        return new ResponseEntity<>(attractionToDelete, httpResponseCode);
+    public String deleteAttraction(@PathVariable String name) {
+        this.service.deleteAttraction(name);
+        return "redirect:/attractions";
     }
 }

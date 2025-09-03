@@ -30,7 +30,7 @@ public class AttractionRepository {
     public TouristAttraction getAttractionByName(String name) {
 
         for (TouristAttraction attraction : attractions) {
-            if (attraction.getName().equalsIgnoreCase(name)) return attraction;
+            if (attraction.getName().toLowerCase().equals(name.toLowerCase())) return attraction;
         }
 
         return null;
