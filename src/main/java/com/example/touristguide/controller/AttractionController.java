@@ -37,7 +37,7 @@ public class AttractionController {
         TouristAttraction attraction = service.getAttractionByName(name);
         model.addAttribute("byName", attraction);
 
-        return "attractionsList";
+        return "showAttraction";
     }
 
     //POST
