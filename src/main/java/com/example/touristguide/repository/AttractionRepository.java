@@ -8,6 +8,8 @@ import java.util.ArrayList;
 @Repository
 public class AttractionRepository {
 
+    private int nextId = 0;
+
     private final ArrayList<TouristAttraction> attractions = new ArrayList<>();
 
 
@@ -16,9 +18,9 @@ public class AttractionRepository {
     }
 
     private void populateRepository() {
-        attractions.add(new TouristAttraction("Tivoli", "københavns største forlystelsespark"));
-        attractions.add(new TouristAttraction("Den lille Havfrue", "Danmarks mindste havfrue"));
-        attractions.add(new TouristAttraction("Råbjerg mile", "Danmarks største slette (der flytter sig)"));
+        attractions.add(new TouristAttraction("Tivoli", "københavns største forlystelsespark", getNextId()));
+        attractions.add(new TouristAttraction("Den lille Havfrue", "Danmarks mindste havfrue", getNextId()));
+        attractions.add(new TouristAttraction("Råbjerg mile", "Danmarks største slette (der flytter sig)", getNextId()));
     }
 
     public ArrayList<TouristAttraction> getAttractions() {
@@ -32,6 +34,10 @@ public class AttractionRepository {
         }
 
         return null;
+    }
+
+    private int getNextId() {
+        return nextId++;
     }
 
     public TouristAttraction addAttraction(TouristAttraction attraction) {

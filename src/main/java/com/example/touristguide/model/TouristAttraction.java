@@ -1,10 +1,12 @@
 package com.example.touristguide.model;
 
 public class TouristAttraction {
+    private final int id;
     private String name;
     private String description;
 
-    public TouristAttraction(String name, String description) {
+    public TouristAttraction(String name, String description, int id) {
+        this.id = id;
         this.name = name;
         this.description = description;
     }
@@ -23,5 +25,9 @@ public class TouristAttraction {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getId() {
+        return id;
     }
 }
