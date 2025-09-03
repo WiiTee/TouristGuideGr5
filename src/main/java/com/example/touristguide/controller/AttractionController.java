@@ -24,7 +24,7 @@ public class AttractionController {
     //GET
     @GetMapping("{name}")
     public String getAttractionsByName(@PathVariable String name, Model model){
-
+        
         TouristAttraction attraction = service.getAttractionByName(name);
         model.addAttribute("byName", attraction);
 
