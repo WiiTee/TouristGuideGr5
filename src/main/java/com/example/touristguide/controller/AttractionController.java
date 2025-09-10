@@ -46,6 +46,7 @@ public class AttractionController {
     public String addAttraction (Model model) {
         TouristAttraction attractionToAdd = new TouristAttraction();
         model.addAttribute("attraction", attractionToAdd);
+        model.addAttribute("tags", Tags.values());
         return "newAttractionForm";
     }
 
