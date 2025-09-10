@@ -24,14 +24,14 @@
                     <label class="form-label">By:</label>
                     <input type="text" th:field="*{city}">
                 </div>
-                <div>
-                    <label class="form-label">Tags:</label>
-                    <table>
-                        <tr th:each="tagsList : ${tags}">
-                            <input th:if="${tagsList.name == attraction.getTagList.contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox" checked>
-                            <input th:unless="${tagsList.name == attraction.getTagList.contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox">
-                    </table>
-                </div>
+<!--                <div>-->
+<!--                    <label class="form-label">Tags:</label>-->
+<!--                    <table>-->
+<!--                        <tr th:each="tagsList : ${tags}">-->
+<!--                            <input th:if="${tagsList.name == attraction.getTagList.contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox" checked>-->
+<!--                            <input th:unless="${tagsList.name == attraction.getTagList.contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox">-->
+<!--                    </table>-->
+<!--                </div>-->
                 <div>
                     <button type="submit">Edit</button>
                 </div>
