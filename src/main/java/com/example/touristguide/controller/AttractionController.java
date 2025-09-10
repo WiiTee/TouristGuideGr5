@@ -51,7 +51,7 @@ public class AttractionController {
     }
 
     @GetMapping("/{name}/edit")
-    public String editAttractionDescription(@PathVariable String name, Model model) {
+    public String editAttraction(@PathVariable String name, Model model) {
         TouristAttraction attraction = service.getAttractionByName(name);
         Tags[] tagList = Tags.values();
 
