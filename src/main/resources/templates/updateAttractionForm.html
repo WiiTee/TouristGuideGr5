@@ -11,9 +11,6 @@
             <form action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post">
                 <div>
                     <label class="form-label">Name:</label>
-                    <!--
-                    <input type="hidden" th:field="${attractionId}">
-                    -->
                     <input type="text" th:field="*{name}" readonly>
                 </div>
                 <div>
