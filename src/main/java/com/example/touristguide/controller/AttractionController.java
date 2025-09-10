@@ -23,7 +23,7 @@ public class AttractionController {
     public String getAttractions(Model model) {
         List<TouristAttraction> touristAttractions = service.getAttractions();
         model.addAttribute("attractionsList", touristAttractions);
-        return "attractionsList";
+        return "showAllAttractions";
     }
 
     @GetMapping("/{name}")
