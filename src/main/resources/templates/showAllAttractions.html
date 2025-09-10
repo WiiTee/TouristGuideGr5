@@ -14,9 +14,16 @@
     <tr th:each="attraction: ${attractionsList}">
         <td th:text="${attraction.name}"></td>
         <td th:text="${attraction.description}"></td>
-        <td> <a th:href="@{/user/register}">Opret attraktion</a></td>
-        <td> <a th:href="@{/user/register}">Slet attraktion</a></td>
-        <td> <a th:href="@{/user/register}">Rediger attraktion</a></td>
+        <td>
+            <form method="post" th:action="@{attractions/delete/{name}(name=${attraction.name})}">
+                <button type="submit">Slet</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/attractions/{name}/edit(name=${attraction.name})}" method="get">
+                <button type="submit">Rediger</button>
+            </form>
+        </td>
     </tr>
 </table>
 

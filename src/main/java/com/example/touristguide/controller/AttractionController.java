@@ -30,7 +30,7 @@ public class AttractionController {
     public String getAttractions(Model model) {
         List<TouristAttraction> touristAttractions = service.getAttractions();
         model.addAttribute("attractionsList", touristAttractions);
-        return "attractionsList";
+        return "showAllAttractions";
     }
 
     @GetMapping("/{name}")
@@ -79,17 +79,14 @@ public class AttractionController {
 
         service.editAttraction(attraction);
 
-
         return "redirect:/attractions";
     }
 
     @PostMapping("/delete/{name}")
-    public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name) {
-        TouristAttraction attractionToDelete = this.service.deleteAttraction(name);
+    public String deleteAttraction(@PathVariable String name) {
 
-        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
-        if (attractionToDelete != null) httpResponseCode = HttpStatus.OK;
+        service.deleteAttraction(name);
 
-        return new ResponseEntity<>(attractionToDelete, httpResponseCode);
+        return "redirect:/attractions";
     }
 }
