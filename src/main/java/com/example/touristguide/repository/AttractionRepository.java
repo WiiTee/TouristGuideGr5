@@ -1,5 +1,6 @@
 package com.example.touristguide.repository;
 
+import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import org.springframework.stereotype.Repository;
 
@@ -18,9 +19,9 @@ public class AttractionRepository {
     }
 
     private void populateRepository() {
-        attractions.add(new TouristAttraction("Tivoli", "københavns største forlystelsespark", getNextId()));
-        attractions.add(new TouristAttraction("Den lille Havfrue", "Danmarks mindste havfrue", getNextId()));
-        attractions.add(new TouristAttraction("Råbjerg mile", "Danmarks største slette (der flytter sig)", getNextId()));
+        attractions.add(new TouristAttraction("Tivoli", "københavns største forlystelsespark", "København", getNextId()));
+        attractions.add(new TouristAttraction("Den lille Havfrue", "Danmarks mindste havfrue", "København", getNextId()));
+        attractions.add(new TouristAttraction("Råbjerg mile", "Danmarks største slette (der flytter sig)", "Skagen", getNextId()));
     }
 
     public ArrayList<TouristAttraction> getAttractions() {
@@ -46,10 +47,12 @@ public class AttractionRepository {
         return attraction;
     }
 
-    public TouristAttraction editAttractionDescription(String attractionName, String newDescription) {
+    public TouristAttraction editAttraction(String attractionName, String newDescription, String newCity, ArrayList<Tags> newTagList) {
         TouristAttraction attractionToEdit = getAttractionByName(attractionName);
         if (attractionToEdit != null) {
             attractionToEdit.setDescription(newDescription);
+            attractionToEdit.setCity(newCity);
+            attractionToEdit.setTagList(newTagList);
         }
         return attractionToEdit;
     }

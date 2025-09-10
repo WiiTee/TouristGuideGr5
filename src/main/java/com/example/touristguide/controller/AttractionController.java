@@ -1,5 +1,6 @@
 package com.example.touristguide.controller;
 
+import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import com.example.touristguide.service.AttractionService;
 import org.springframework.http.HttpStatus;
@@ -7,6 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -37,7 +42,6 @@ public class AttractionController {
         return "showAttraction";
     }
 
-    //POST
     @GetMapping("/add")
     public String addAttraction (Model model) {
         TouristAttraction attractionToAdd = new TouristAttraction();
@@ -45,28 +49,35 @@ public class AttractionController {
         return "newAttractionForm";
     }
 
-    @PostMapping("/save")
-    public String saveAttraction(@ModelAttribute TouristAttraction attraction){
-        service.addAttraction(attraction);
-        return "redirect:/attractions";
-    }
-
-    @PostMapping("/{name}/edit")
+    @GetMapping("/{name}/edit")
     public String editAttractionDescription(@PathVariable String name, Model model) {
         TouristAttraction attraction = service.getAttractionByName(name);
+        Tags[] tagList = Tags.values();
+
         if(attraction == null){
             throw new IllegalArgumentException("Attraction does not exist");
         }
 
         model.addAttribute("attraction", attraction);
+        model.addAttribute("tags", tagList);
 
         return "updateAttractionForm";
     }
 
-    @PostMapping("/update")
-    public String updateAttraction(@RequestBody TouristAttraction withNewDescription){
+    //POST
 
-        service.editAttractionDescription(withNewDescription.getName(), withNewDescription.getDescription());
+    @PostMapping("/save")
+    public String saveAttraction(@ModelAttribute TouristAttraction attraction){
+        ArrayList<Tags> selectedTags = attraction.getSelectedTags();
+        service.addAttraction(attraction);
+        return "redirect:/attractions";
+    }
+
+    @PostMapping("/update")
+    public String updateAttraction(@ModelAttribute TouristAttraction attraction){
+
+        service.editAttractionDescription(attraction);
+
 
         return "redirect:/attractions";
     }

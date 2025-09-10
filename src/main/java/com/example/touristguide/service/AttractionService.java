@@ -1,5 +1,6 @@
 package com.example.touristguide.service;
 
+import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import com.example.touristguide.repository.AttractionRepository;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,14 @@ public class AttractionService {
         return this.repository.addAttraction(attraction);
     }
 
-    public TouristAttraction editAttractionDescription(String name, String newDescription){
-        return this.repository.editAttractionDescription(name, newDescription);
+    public TouristAttraction editAttractionDescription(TouristAttraction attraction){
+        String name = attraction.getName();
+        String newDescription = attraction.getDescription();
+        ArrayList<Tags> newTags = attraction.getSelectedTags();
+        String newCity = attraction.getCity();
+        int id = attraction.getId();
+
+        return this.repository.editAttractionDescription(name, newDescription, newCity, newTags);
     }
 
     public TouristAttraction deleteAttraction(String name){
