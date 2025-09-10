@@ -19,9 +19,9 @@ public class AttractionRepository {
     }
 
     private void populateRepository() {
-        attractions.add(new TouristAttraction("Tivoli", "københavns største forlystelsespark", "København", getNextId()));
-        attractions.add(new TouristAttraction("Den lille Havfrue", "Danmarks mindste havfrue", "København", getNextId()));
-        attractions.add(new TouristAttraction("Råbjerg mile", "Danmarks største slette (der flytter sig)", "Skagen", getNextId()));
+        attractions.add(new TouristAttraction("Tivoli", "københavns største forlystelsespark", "København", new ArrayList<Tags>()));
+        attractions.add(new TouristAttraction("Den lille Havfrue", "Danmarks mindste havfrue", "København", new ArrayList<Tags>()));
+        attractions.add(new TouristAttraction("Råbjerg mile", "Danmarks største slette (der flytter sig)", "Skagen", new ArrayList<Tags>()));
     }
 
     public ArrayList<TouristAttraction> getAttractions() {
@@ -61,7 +61,7 @@ public class AttractionRepository {
         if (attractionToEdit != null) {
             attractionToEdit.setDescription(newDescription);
             attractionToEdit.setCity(newCity);
-            attractionToEdit.setTagList(newTagList);
+            attractionToEdit.setSelectedTags(newTagList);
         }
         return attractionToEdit;
     }

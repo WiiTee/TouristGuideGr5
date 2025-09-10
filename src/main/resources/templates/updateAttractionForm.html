@@ -28,8 +28,8 @@
                     <label class="form-label">Tags:</label>
                     <table>
                         <tr th:each="tagsList : ${tags}">
-                            <input th:if="${tagsList.name == attraction.getSelectedTags().contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox" checked>
-                            <input th:unless="${tagsList.name == attraction.getSelectedTags().contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox">
+                            <input th:field="*{selectedTags}" th:if="${tagsList.name == attraction.getSelectedTags.contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox" checked>
+                            <input th:field="*{selectedTags}" th:unless="${tagsList.name == attraction.getSelectedTags.contains(name)}" th:value="${tagsList}" th:text="${tagsList.name}" type="checkbox">
                     </table>
                 </div>
                 <div>
