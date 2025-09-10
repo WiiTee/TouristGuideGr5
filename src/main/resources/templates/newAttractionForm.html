@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="form-wrapper">
-        <form action="#" th:action="@{/attractions/add}" th:object="${attraction}" method="post">
+        <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
             <h2>Register an attraction</h2>
 
             <div>
@@ -23,7 +23,7 @@
                 <legend>Choose applicable tags</legend>
 
                 <div th:each="tag : ${tags}" id="tag-checkbox">
-                    <input type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name()}">
+                    <input type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name}">
                 </div>
             </fieldset>
 
