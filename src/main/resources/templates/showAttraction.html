@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Show Attraction</title>
+    <link href="/style/style.css" rel="stylesheet"/>
 </head>
-<body>
-
+<body class="center">
+    <section>
+        <article class="info-box" th:object="${byName}">
+            <h2 th:text="*{name}"></h2>
+            <p th:text="*{description}"></p>
+            <p th:text="*{city}"></p>
+            <table>
+                <tr th:each="tags :${byName.getTagList}">
+                    <label th:text="${tags.name}"></label>
+                </tr>
+            </table>
+        </article>
+    </section>
 </body>
 </html>

@@ -1,10 +1,17 @@
 package com.example.touristguide.controller;
+
 import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import com.example.touristguide.service.AttractionService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -23,7 +30,7 @@ public class AttractionController {
     public String getAttractions(Model model) {
         List<TouristAttraction> touristAttractions = service.getAttractions();
         model.addAttribute("attractionsList", touristAttractions);
-        return "showAllAttractions";
+        return "attractionsList";
     }
 
     @GetMapping("/{name}")
@@ -35,15 +42,6 @@ public class AttractionController {
         return "showAttraction";
     }
 
-    @GetMapping("/{name}/tags")
-    public String getAttractionsByNameWithTags(@PathVariable String name, Model model){
-
-        TouristAttraction attraction = service.getAttractionByNameWithTags(name);
-        model.addAttribute("attraction", attraction);
-
-        return "showTags";
-    }
-
     @GetMapping("/add")
     public String addAttraction (Model model) {
         TouristAttraction attractionToAdd = new TouristAttraction();
@@ -52,36 +50,46 @@ public class AttractionController {
         return "newAttractionForm";
     }
 
-    //POST
-    @PostMapping("/save")
-    public String saveAttraction(@ModelAttribute TouristAttraction attraction){
-        service.addAttraction(attraction);
-        return "redirect:/attractions";
-    }
-
-    @PostMapping("/{name}/edit")
+    @GetMapping("/{name}/edit")
     public String editAttractionDescription(@PathVariable String name, Model model) {
         TouristAttraction attraction = service.getAttractionByName(name);
+        Tags[] tagList = Tags.values();
+
         if(attraction == null){
             throw new IllegalArgumentException("Attraction does not exist");
         }
 
         model.addAttribute("attraction", attraction);
+        model.addAttribute("tags", tagList);
 
         return "updateAttractionForm";
     }
 
-    @PostMapping("/update")
-    public String updateAttraction(@RequestBody TouristAttraction withNewDescription){
+    //POST
 
-        service.editAttractionDescription(withNewDescription.getName(), withNewDescription.getDescription());
+    @PostMapping("/save")
+    public String saveAttraction(@ModelAttribute TouristAttraction attraction){
+        ArrayList<Tags> selectedTags = attraction.getSelectedTags();
+        service.addAttraction(attraction);
+        return "redirect:/attractions";
+    }
+
+    @PostMapping("/update")
+    public String updateAttraction(@ModelAttribute TouristAttraction attraction){
+
+        service.editAttraction(attraction);
+
 
         return "redirect:/attractions";
     }
 
     @PostMapping("/delete/{name}")
-    public String deleteAttraction(@PathVariable String name) {
-        this.service.deleteAttraction(name);
-        return "redirect:/attractions";
+    public ResponseEntity<TouristAttraction> deleteAttraction(@PathVariable String name) {
+        TouristAttraction attractionToDelete = this.service.deleteAttraction(name);
+
+        HttpStatus httpResponseCode = HttpStatus.BAD_REQUEST;
+        if (attractionToDelete != null) httpResponseCode = HttpStatus.OK;
+
+        return new ResponseEntity<>(attractionToDelete, httpResponseCode);
     }
 }

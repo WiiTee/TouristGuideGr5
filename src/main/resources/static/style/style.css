@@ -2,6 +2,11 @@ body {
     font-family: "Poppins", sans-serif;
     color: #16404D;
     background-color: #FBF5DD;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
 }
 
 .center {
@@ -50,6 +55,18 @@ a {
 
 .info-box h2 {
     margin: 5px;
+}
+
+#form-box {
+    width: inherit;
+}
+
+label .form-label {
+    width: 200px;
+    display: block;
+}
+
+input {
 }
 
 footer {
