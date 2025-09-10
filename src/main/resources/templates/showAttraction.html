@@ -12,7 +12,7 @@
             <p th:text="*{description}"></p>
             <p th:text="*{city}"></p>
             <table>
-                <tr th:each="tags :${byName.getTagList}">
+                <tr th:each="tags :${byName.getSelectedTags}">
                     <label th:text="${tags.name}"></label>
                 </tr>
             </table>

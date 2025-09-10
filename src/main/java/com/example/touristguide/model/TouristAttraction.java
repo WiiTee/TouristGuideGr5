@@ -9,14 +9,14 @@ public class TouristAttraction {
     private String city;
     private ArrayList<Tags> selectedTags = new ArrayList<>();
 
-    public TouristAttraction(String name, String description, String city, int id) {
+    public TouristAttraction(String name, String description, String city) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.city = city;
     }
 
-    public TouristAttraction(String name, String description, String city, int id, ArrayList<Tags> tagList) {
+    public TouristAttraction(String name, String description, String city,ArrayList<Tags> tagList) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -54,7 +54,7 @@ public class TouristAttraction {
         this.city = city;
     }
 
-    public void setTagList(ArrayList<Tags> tagList) {
+    public void setSelectedTags(ArrayList<Tags> tagList) {
         this.selectedTags = tagList;
     }
 
