@@ -19,6 +19,14 @@
                 <textarea id="description" th:field="*{description}" required></textarea>
             </div>
 
+            <fieldset>
+                <legend>Choose applicable tags</legend>
+
+                <div th:each="tag : ${tags}" id="tag-checkbox">
+                    <input type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name()}">
+                </div>
+            </fieldset>
+
             <button type="submit">Register</button>
         </form>
     </div>
