@@ -76,7 +76,7 @@ public class AttractionController {
     @PostMapping("/update")
     public String updateAttraction(@ModelAttribute TouristAttraction attraction){
 
-        service.editAttractionDescription(attraction);
+        service.editAttraction(attraction);
 
 
         return "redirect:/attractions";
