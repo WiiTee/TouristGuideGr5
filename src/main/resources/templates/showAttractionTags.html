@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Attraction Tags</title>
 </head>
 <body>
-
+    <section>
+        <article class="info-box" th:object="${attractionTags}">
+            <h2 th:text="*{name}"></h2>
+            <ul th:each="tagList : ${attractionTags.getSelectedTags}">
+                <li th:text="${tagList.name}"></li>
+            </ul>
+        </article>
+    </section>
 </body>
 </html>
