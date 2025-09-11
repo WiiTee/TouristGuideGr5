@@ -65,6 +65,19 @@ public class AttractionController {
         return "updateAttractionForm";
     }
 
+    @GetMapping("/{name}/tags")
+    public String showAttractionTags(@PathVariable String name, Model model){
+        TouristAttraction attraction = service.getAttractionByName(name);
+
+        if(attraction == null){
+            throw new IllegalArgumentException("Attraction does not exist");
+        }
+
+        model.addAttribute("attractionTags", attraction);
+
+        return "showAttractionTags";
+    }
+
     //POST
 
     @PostMapping("/save")
