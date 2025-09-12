@@ -67,7 +67,7 @@ public class AttractionController {
             throw new IllegalArgumentException("Attraction does not exist");
         }
 
-        model.addAttribute("attractionTags", attraction);
+        model.addAttribute("attraction", attraction);
 
         return "showAttractionTags";
     }
