@@ -5,8 +5,8 @@
     <title>Title</title>
     <link href="/style/style.css" rel="stylesheet">
 </head>
-<body class="center">
-    <section>
+<body>
+    <section class="center">
         <article id="form-box" class="info-box">
             <form action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post">
                 <div>
@@ -26,8 +26,8 @@
                 Det forsager at vores checkboxes kommer under hinanden, men det er nemt at fikse med CSS-->
                 <fieldset id="checkboxes">
                     <div th:each="tag : ${tags}">
-                        <label th:for="${tag.name}" th:text="${tag.name}"></label>
-                        <input type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
+                        <label for="checkbox" th:for="${tag.name}" th:text="${tag.name}"></label>
+                        <input id="checkbox" type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
                     </div>
                 </fieldset>
                 <div>

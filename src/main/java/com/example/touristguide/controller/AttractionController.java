@@ -3,15 +3,9 @@ package com.example.touristguide.controller;
 import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import com.example.touristguide.service.AttractionService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.thymeleaf.util.ArrayUtils;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -82,7 +76,7 @@ public class AttractionController {
 
     @PostMapping("/save")
     public String saveAttraction(@ModelAttribute TouristAttraction attraction){
-        ArrayList<Tags> selectedTags = attraction.getSelectedTags();
+        //ArrayList<Tags> selectedTags = attraction.getSelectedTags();
         service.addAttraction(attraction);
         return "redirect:/attractions";
     }
