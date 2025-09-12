@@ -36,22 +36,28 @@ public class AttractionRepository {
         return null;
     }
 
-    public void addAttraction(TouristAttraction attraction) {
+    public TouristAttraction addAttraction(TouristAttraction attraction) {
         attractions.add(attraction);
+
+        return attraction;
     }
 
-    public void editAttraction(String attractionName, String newDescription, String newCity, ArrayList<Tags> newTagList) {
+    public TouristAttraction editAttraction(String attractionName, String newDescription, String newCity, ArrayList<Tags> newTagList) {
         TouristAttraction attractionToEdit = getAttractionByName(attractionName);
         if (attractionToEdit != null) {
             attractionToEdit.setDescription(newDescription);
             attractionToEdit.setCity(newCity);
             attractionToEdit.setSelectedTags(newTagList);
         }
+
+        return attractionToEdit;
     }
 
-    public void deleteAttraction(String attractionName) {
+    public TouristAttraction deleteAttraction(String attractionName) {
         TouristAttraction attractionToDelete = getAttractionByName(attractionName);
         attractions.remove(attractionToDelete);
+
+        return attractionToDelete;
     }
 
 }
