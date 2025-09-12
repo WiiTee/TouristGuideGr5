@@ -5,15 +5,15 @@
     <title>Show Attraction</title>
     <link href="/style/style.css" rel="stylesheet"/>
 </head>
-<body class="center">
-    <section>
+<body>
+    <section class="center">
         <article class="info-box" th:object="${byName}">
             <h2 th:text="*{name}"></h2>
             <p th:text="*{description}"></p>
             <p th:text="*{city}"></p>
             <table>
                 <tr th:each="tags :${byName.getSelectedTags}">
-                    <label th:text="${tags.name}"></label>
+                    <td th:text="${tags.name}"></td>
                 </tr>
             </table>
         </article>

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Attraction Tags</title>
+    <link href="/style/style.css" rel="stylesheet" />
 </head>
 <body>
-    <section>
+    <section class="center">
         <article class="info-box" th:object="${attractionTags}">
             <h2 th:text="*{name}"></h2>
-            <ul th:each="tagList : ${attractionTags.getSelectedTags}">
-                <li th:text="${tagList.name}"></li>
+            <ul>
+                <li th:each="tagList : ${attractionTags.getSelectedTags}" th:text="${tagList.name}"></li>
             </ul>
         </article>
     </section>

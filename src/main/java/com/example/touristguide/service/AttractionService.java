@@ -23,25 +23,20 @@ public class AttractionService {
         return this.repository.getAttractionByName(name);
     }
 
-    public TouristAttraction getAttractionByNameWithTags(String name){
-        return this.repository.getAttractionByNameWithTags(name);
+    public void addAttraction(TouristAttraction attraction) {
+        this.repository.addAttraction(attraction);
     }
 
-    public TouristAttraction addAttraction(TouristAttraction attraction) {
-        return this.repository.addAttraction(attraction);
-    }
-
-    public TouristAttraction editAttraction(TouristAttraction attraction){
+    public void editAttraction(TouristAttraction attraction){
         String name = attraction.getName();
         String newDescription = attraction.getDescription();
         ArrayList<Tags> newTags = attraction.getSelectedTags();
         String newCity = attraction.getCity();
-        int id = attraction.getId();
 
-        return this.repository.editAttraction(name, newDescription, newCity, newTags);
+        this.repository.editAttraction(name, newDescription, newCity, newTags);
     }
 
-    public TouristAttraction deleteAttraction(String name){
-        return this.repository.deleteAttraction(name);
+    public void deleteAttraction(String name){
+        this.repository.deleteAttraction(name);
     }
 }

@@ -23,7 +23,8 @@
                 <legend>Choose applicable tags</legend>
 
                 <div th:each="tag : ${tags}" id="tag-checkbox">
-                    <input type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name}">
+                    <label for="checkbox"></label>
+                    <input id="checkbox" type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name}">
                 </div>
             </fieldset>
 

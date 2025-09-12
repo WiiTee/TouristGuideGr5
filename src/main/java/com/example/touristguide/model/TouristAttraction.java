@@ -3,21 +3,18 @@ package com.example.touristguide.model;
 import java.util.ArrayList;
 
 public class TouristAttraction {
-    private int id;
     private String name;
     private String description;
     private String city;
     private ArrayList<Tags> selectedTags = new ArrayList<>();
 
     public TouristAttraction(String name, String description, String city) {
-        this.id = id;
         this.name = name;
         this.description = description;
         this.city = city;
     }
 
     public TouristAttraction(String name, String description, String city,ArrayList<Tags> tagList) {
-        this.id = id;
         this.name = name;
         this.description = description;
         this.city = city;
@@ -56,13 +53,5 @@ public class TouristAttraction {
 
     public void setSelectedTags(ArrayList<Tags> tagList) {
         this.selectedTags = tagList;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
