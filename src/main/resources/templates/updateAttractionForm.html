@@ -17,9 +17,12 @@
                     <label for="description" class="form-label">Description:</label>
                     <input id="description" type="text" th:field="*{description}">
                 </div>
+
                 <div>
-                    <label for="city" class="form-label">By:</label>
-                    <input id="city" type="text" th:field="*{city}">
+                    <label for="city">Select a city</label>
+                    <select id="city" th:field="*{city}">
+                        <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"/>
+                    </select>
                 </div>
 
 <!--            Har ændret containeren for checkboxes til et mere semantisk korrekt tag
