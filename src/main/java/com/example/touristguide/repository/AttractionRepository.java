@@ -4,16 +4,13 @@ import com.example.touristguide.model.Tags;
 import com.example.touristguide.model.TouristAttraction;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 @Repository
 public class AttractionRepository {
 
-    private final ArrayList<TouristAttraction> attractions = new ArrayList<>();
-    private final ArrayList<String> cities = new ArrayList<>();
+    private final List<TouristAttraction> attractions = new ArrayList<>();
+    private final List<String> cities = new ArrayList<>();
 
 
     public AttractionRepository(){
@@ -56,7 +53,7 @@ public class AttractionRepository {
         Collections.sort(cities);
     }
 
-    public ArrayList<TouristAttraction> getAttractions() {
+    public List<TouristAttraction> getAttractions() {
         return attractions;
     }
 
