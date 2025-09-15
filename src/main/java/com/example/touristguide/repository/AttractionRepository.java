@@ -57,6 +57,10 @@ public class AttractionRepository {
         return attractions;
     }
 
+    public List<String> getCities() {
+        return cities;
+    }
+
     public TouristAttraction getAttractionByName(String name) {
 
         for (TouristAttraction attraction : attractions) {

@@ -20,6 +20,10 @@ public class AttractionService {
         return this.repository.getAttractions();
     }
 
+    public List<String> getCities() {
+        return this.repository.getCities();
+    }
+
     public TouristAttraction getAttractionByName(String name){
         return this.repository.getAttractionByName(name);
     }
