@@ -19,6 +19,13 @@
                 <textarea id="description" th:field="*{description}" required></textarea>
             </div>
 
+            <div>
+                <label for="city">Select a city</label>
+                <select id="city" th:field="*{city}">
+                    <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"/>
+                </select>
+            </div>
+
             <fieldset>
                 <legend>Choose applicable tags</legend>
 

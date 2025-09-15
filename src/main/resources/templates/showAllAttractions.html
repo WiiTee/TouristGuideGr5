@@ -30,9 +30,9 @@
                 </form>
             </td>
             <td>
-                <form th:action="@{/attractions/{name}/edit(name=${attraction.name})}" method="get">
-                    <button type="submit">Rediger</button>
-                </form>
+                <a th:href="@{/attractions/{name}/edit(name=${attraction.name})}">
+                    <button>Rediger</button>
+                </a>
             </td>
         </tr>
     </table>
