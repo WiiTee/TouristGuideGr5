@@ -6,6 +6,7 @@ import com.example.touristguide.repository.AttractionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AttractionService {
@@ -15,8 +16,12 @@ public class AttractionService {
         this.repository =repository;
     }
 
-    public ArrayList<TouristAttraction> getAttractions(){
+    public List<TouristAttraction> getAttractions(){
         return this.repository.getAttractions();
+    }
+
+    public List<String> getCities() {
+        return this.repository.getCities();
     }
 
     public TouristAttraction getAttractionByName(String name){
