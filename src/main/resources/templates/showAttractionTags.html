@@ -7,10 +7,10 @@
 </head>
 <body>
     <section class="center">
-        <article class="info-box" th:object="${attractionTags}">
+        <article class="info-box" th:object="${attraction}">
             <h2 th:text="*{name}"></h2>
             <ul>
-                <li th:each="tagList : ${attractionTags.getSelectedTags}" th:text="${tagList.name}"></li>
+                <li th:each="tag : ${attraction.getSelectedTags}" th:text="${tag.name}"></li>
             </ul>
         </article>
     </section>
