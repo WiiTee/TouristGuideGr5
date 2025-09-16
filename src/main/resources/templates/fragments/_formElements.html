@@ -5,31 +5,43 @@
     <title></title>
 </head>
 <body>
-<div th:fragment="formWrapper" class="form-wrapper">
-    <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
-        <h2>Register an attraction</h2>
+    <div th:fragment="formWrapperUpdate" class="form-wrapper">
+        <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
+            <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
+            <div th:insert="~{/fragments/_formElements :: formBasics}"></div>
+            <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
+            <div th:insert="~{/fragments/_formElements :: formUpdateBtn}"></div>
+        </form>
+    </div>
+    </div>
+    <form th:fragment="formRegister(attraction)" action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post"></form>
+    <form th:fragment="formUpdate(attraction)" action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post"></form>
+    <h2 th:fragment="formRegisterHeader">Register an attraction</h2>
+    <h2 th:fragment="formUpdateHeader">Update an attraction</h2>
+    <div th:fragment="formBasics">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" required>
+    </div>
 
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" th:field="*{name}" required>
+    <div>
+        <label for="description">Description</label>
+        <textarea id="description" th:field="*{description}" required></textarea>
+    </div>
+
+    <fieldset>
+        <legend>Choose applicable tags</legend>
+
+        <div th:each="tag : ${tags}" id="tag-checkbox">
+            <label for="checkbox"></label>
+            <input id="checkbox" type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
         </div>
-
-        <div>
-            <label for="description">Description</label>
-            <textarea id="description" th:field="*{description}" required></textarea>
-        </div>
-
-        <fieldset>
-            <legend>Choose applicable tags</legend>
-
-            <div th:each="tag : ${tags}" id="tag-checkbox">
-                <label for="checkbox"></label>
-                <input id="checkbox" type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name}">
-            </div>
-        </fieldset>
-
-        <button type="submit">Register</button>
-    </form>
-</div>
+    </fieldset>
+    </div>
+    <button th:fragment="formRegisterBtn" type="submit">Register</button>
+    <button th:fragment="formUpdateBtn" type="submit">Update</button>
+    <a th:fragment="formGoBack" href="attractions">
+        <button>Go back</button>
+    </a>
 </body>
 </html>
