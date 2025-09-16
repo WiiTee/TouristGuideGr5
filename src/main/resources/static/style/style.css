@@ -11,12 +11,10 @@ body {
     box-sizing: inherit;
 }
 
-.center {
-}
-
 header {
     text-align: center;
-    width: 100%;
+    width: inherit;
+    height: 300px;
 }
 
 header h1 {
@@ -33,16 +31,40 @@ header h1 {
     width: 850px;
     height: 300px;
     object-fit: fill;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
 }
 
-div {
-    width: 100%;
+#top-nav {
+    text-align: center;
+}
+
+#nav-container {
+    background-color: #A6CDC6;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 a {
     color: #8a6832;
+}
+
+#top-nav a {
+    display: inline-block;
+    width: 100px;
+    background-color: #FBF5DDFF;
+    text-decoration: none;
+}
+
+#top-nav a:hover{
+    display: inline-block;
+    width: 100px;
+    background-color: #DDA853;
+    color: #4e3811;
+}
+
+div {
+    width: 100%;
 }
 
 .info-box {
