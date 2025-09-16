@@ -3,21 +3,18 @@ body {
     color: #16404D;
     background-color: #FBF5DD;
     box-sizing: border-box;
+    max-width: 850px;
+    margin: auto;
 }
 
 * {
     box-sizing: inherit;
 }
 
-.center {
-    max-width: 850px;
-    margin: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 header {
     text-align: center;
+    width: inherit;
+    height: 300px;
 }
 
 header h1 {
@@ -34,8 +31,18 @@ header h1 {
     width: 850px;
     height: 300px;
     object-fit: fill;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+}
+
+#top-nav {
+    text-align: center;
+}
+
+#nav-container {
+    background-color: #16404DFF;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 div {
