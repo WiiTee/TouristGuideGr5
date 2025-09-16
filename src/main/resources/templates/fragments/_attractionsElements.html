@@ -18,16 +18,16 @@
         De her burde nok smides ind i _formElements
         Alle tager imod et attraction object.
         -->
-        <form th:fragment="showAttractionTags(attraction)" th:action="@{/attractions/{name}/tags(name=${attraction.name})}" method="get">
+        <form class="actions" th:fragment="showAttractionTags(attraction)" th:action="@{/attractions/{name}/tags(name=${attraction.name})}" method="get">
             <button type="submit">Tags</button>
         </form>
         <form th:fragment="newAttractionForm" th:action="@{/attractions/add}" method="get">
             <button type="submit">Opret</button>
         </form>
-        <form th:fragment="updateAttractionForm(attraction)" th:action="@{/attractions/{name}/edit(name=${attraction.name})}" method="get">
+        <form class="actions" th:fragment="updateAttractionForm(attraction)" th:action="@{/attractions/{name}/edit(name=${attraction.name})}" method="get">
             <button type="submit">Rediger</button>
         </form>
-        <form th:fragment="deleteAttraction(attraction)" th:action="@{attractions/delete/{name}(name=${attraction.name})}" method="post">
+        <form class="actions" th:fragment="deleteAttraction(attraction)" th:action="@{attractions/delete/{name}(name=${attraction.name})}" method="post">
             <button type="submit">Delete</button>
         </form>
 </body>
