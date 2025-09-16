@@ -21,7 +21,7 @@
         <form th:fragment="showAttractionTags(attraction)" th:action="@{/attractions/{name}/tags(name=${attraction.name})}" method="get">
             <button type="submit">Tags</button>
         </form>
-        <form th:fragment="newAttractionForm(attraction)" th:action="/attractions/add" method="get">
+        <form th:fragment="newAttractionForm" th:action="@{/attractions/add}" method="get">
             <button type="submit">Opret</button>
         </form>
         <form th:fragment="updateAttractionForm(attraction)" th:action="@{/attractions/{name}/edit(name=${attraction.name})}" method="get">

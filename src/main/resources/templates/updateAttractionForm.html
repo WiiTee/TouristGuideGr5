@@ -11,36 +11,10 @@
 <main>
     <section>
         <article class="info-box">
-            <!--<div class="form-wrapper">
-                <form action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post">
-                    <div>
-                        <label for="name" class="form-label">Name:</label>
-                        <input id="name" type="text" th:field="*{name}" readonly>
-                    </div>
-                    <div>
-                        <label for="description" class="form-label">Description:</label>
-                        <input id="description" type="text" th:field="*{description}">
-                    </div>
-                    <div>
-                        <label for="city" class="form-label">By:</label>
-                        <input id="city" type="text" th:field="*{city}">
-                    </div>
-                    <fieldset id="checkboxes">
-                        <div th:each="tag : ${tags}">
-                            <label for="checkbox" th:for="${tag.name}" th:text="${tag.name}"></label>
-                            <input id="checkbox" type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
-                        </div>
-                    </fieldset>
-                    <div>
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
-            </div> -->
-            <div th:replace="~{/fragments/_formElements :: formWrapperUpdate}">
-            </div>
+            <div th:replace="~{/fragments/_formElements :: formWrapperUpdate(attraction=${attraction})}"></div>
         </article>
     </section>
 </main>
-<footer th:replace="/fragments/_commonElements :: footer"></footer>
+<footer th:replace="~{/fragments/_commonElements :: footer}"></footer>
 </body>
 </html>
