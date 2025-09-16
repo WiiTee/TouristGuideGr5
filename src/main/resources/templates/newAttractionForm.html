@@ -6,43 +6,15 @@
     <link rel="stylesheet" th:href="@{/style/style.css}">
 </head>
 <body>
-<header th:replace="/fragments/_commonElements :: header"></header>
-<nav th:replace="/fragments/_commonElements :: topNav"></nav>
+<header th:replace="~{/fragments/_commonElements :: header}"></header>
+<nav th:replace="~{/fragments/_commonElements :: topNav}"></nav>
 <main>
     <section>
-        <!--
-        Tilføjede articles på en stor del af dem der manglede da article reelt set skal forstås som content i en sektion.
-        -->
         <article>
-            <div class="form-wrapper">
-                <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
-                    <h2>Register an attraction</h2>
-
-                    <div>
-                        <label for="name">Name</label>
-                        <input type="text" id="name" th:field="*{name}" required>
-                    </div>
-
-                    <div>
-                        <label for="description">Description</label>
-                        <textarea id="description" th:field="*{description}" required></textarea>
-                    </div>
-
-                    <fieldset>
-                        <legend>Choose applicable tags</legend>
-
-                        <div th:each="tag : ${tags}" id="tag-checkbox">
-                            <label for="checkbox"></label>
-                            <input id="checkbox" type="checkbox" th:field="*{selectedTags}" th:value="${tag}" th:text="${tag.name}">
-                        </div>
-                    </fieldset>
-
-                    <button type="submit">Register</button>
-                </form>
-            </div>
+            <div th:replace="~{/fragments/_formElements :: formWrapperSave(attraction=${attraction})}"></div>
         </article>
     </section>
 </main>
-<footer th:replace="/fragments/_commonElements :: footer"></footer>
+<footer th:replace="~{/fragments/_commonElements :: footer}"></footer>
 </body>
 </html>
