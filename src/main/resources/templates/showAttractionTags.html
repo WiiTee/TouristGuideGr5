@@ -8,7 +8,8 @@
 <body>
 <header th:replace="/fragments/_commonElements :: header"></header>
 <nav th:replace="/fragments/_commonElements :: topNav"></nav>
-    <section class="center">
+<main>
+    <section>
         <article class="info-box" th:object="${attraction}">
             <h2 th:text="*{name}"></h2>
             <ul>
@@ -16,6 +17,7 @@
             </ul>
         </article>
     </section>
+</main>
 <footer th:replace="/fragments/_commonElements :: footer"></footer>
 </body>
 </html>

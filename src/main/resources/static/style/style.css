@@ -3,6 +3,10 @@ body {
     color: #16404D;
     background-color: #FBF5DD;
     box-sizing: border-box;
+    max-width: 850px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 * {
@@ -10,10 +14,6 @@ body {
 }
 
 .center {
-    max-width: 850px;
-    margin: auto;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 header {
