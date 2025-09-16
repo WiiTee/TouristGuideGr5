@@ -6,6 +6,8 @@
     <link href="/style/style.css" rel="stylesheet"/>
 </head>
 <body>
+<header th:replace="/fragments/_commonElements :: header"></header>
+<nav th:replace="/fragments/_commonElements :: topNav"></nav>
     <section class="center">
         <article class="info-box" th:object="${byName}">
             <h2 th:text="*{name}"></h2>
@@ -18,5 +20,6 @@
             </table>
         </article>
     </section>
+<footer th:replace="/fragments/_commonElements :: footer"></footer>
 </body>
 </html>
