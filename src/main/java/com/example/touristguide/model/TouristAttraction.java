@@ -31,6 +31,17 @@ public class TouristAttraction {
         return description;
     }
 
+    public String getShortenedDescription() {
+
+        int MAX_LENGTH = 28;
+
+        if (description.length() > MAX_LENGTH) {
+            return description.substring(0, MAX_LENGTH) + "...";
+        } else {
+            return description;
+        }
+    }
+
     public String getCity() {
         return city;
     }

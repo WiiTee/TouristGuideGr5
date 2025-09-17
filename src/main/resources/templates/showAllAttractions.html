@@ -24,7 +24,7 @@
             </tr>
             <tr th:each="attractions: ${attractionsList}">
                 <td th:text="${attractions.name}"></td>
-                <td th:text="${attractions.description}"></td>
+                <td th:text="${attractions.getShortenedDescription}"></td>
                 <td th:text="${attractions.city}"></td>
                 <td>
 
