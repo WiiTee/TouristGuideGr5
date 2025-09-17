@@ -15,7 +15,7 @@
             <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameUpdate}"></div>
             <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
-            <div th:replace="~{/fragments/_formElements :: formUpdateBtn}"></div>
+            <div th:replace="~{/fragments/_formElements :: formSubmitBtn}"></div>
         </form>
         <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
     </div>
@@ -25,7 +25,7 @@
             <div th:insert="~{/fragments/_formElements ::formRegisterHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameSave}"></div>
             <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
-            <div th:replace="~{/fragments/_formElements :: formRegisterBtn}"></div>
+            <div th:replace="~{/fragments/_formElements :: formSubmitBtn}"></div>
         </form>
         <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
     </div>
@@ -77,8 +77,8 @@
     <!--
     === Button Fragments===
     -->
-    <button th:fragment="formRegisterBtn" type="submit">Register</button>
-    <button th:fragment="formUpdateBtn" type="submit">Update</button>
+
+    <button th:fragment="formSubmitBtn" type="submit">Submit</button>
     <a th:fragment="formGoBack" href="/attractions">
         <button>Go back</button>
     </a>
