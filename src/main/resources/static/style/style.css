@@ -31,6 +31,10 @@ header h1 {
     width: 850px;
     height: 300px;
     object-fit: fill;
+    border-color: #364442;
+    border-width: 2px;
+    border-left-style: solid;
+    border-right-style: solid;
 }
 
 #top-nav {
