@@ -75,6 +75,10 @@ a {
     text-align: center;
 }
 
+.actions button {
+    width: 55px;
+}
+
 .info-box {
     background-color: #A6CDC6;
     padding: 15px;
