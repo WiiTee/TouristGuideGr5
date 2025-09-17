@@ -17,11 +17,12 @@
         <h1>Tourist Attractions</h1>
 
         <table>
-
-            <tr th:if="${attractionsList.isEmpty()}">There are no registered attractions</tr>
-            <tr th:if="${!attractionsList.isEmpty()}">
-                <th>Name</th> <th>Description</th> <th>City</th> <th>Actions</th>
-            </tr>
+            <thead>
+                <tr th:if="${attractionsList.isEmpty()}">There are no registered attractions</tr>
+                <tr th:if="${!attractionsList.isEmpty()}">
+                    <th>Name</th> <th>Description</th> <th>City</th> <th>Actions</th>
+                </tr>
+            </thead>
             <tr th:each="attractions: ${attractionsList}">
                 <td th:text="${attractions.name}"></td>
                 <td th:text="${attractions.getShortenedDescription}"></td>
