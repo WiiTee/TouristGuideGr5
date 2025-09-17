@@ -15,9 +15,9 @@
             <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameUpdate}"></div>
             <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
-            <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
             <div th:replace="~{/fragments/_formElements :: formSubmitBtn}"></div>
         </form>
+        <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
     </div>
 
     <div th:fragment="formWrapperSave(attraction)" th:object="${attraction}" class="form-wrapper">
@@ -25,9 +25,9 @@
             <div th:insert="~{/fragments/_formElements ::formRegisterHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameSave}"></div>
             <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
-            <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
             <div th:replace="~{/fragments/_formElements :: formSubmitBtn}"></div>
         </form>
+        <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
     </div>
 
     <!--
@@ -77,8 +77,9 @@
     <!--
     === Button Fragments===
     -->
+
     <button th:fragment="formSubmitBtn" type="submit">Submit</button>
-    <a th:fragment="formGoBack" href="attractions">
+    <a th:fragment="formGoBack" href="/attractions">
         <button>Go back</button>
     </a>
 </body>
