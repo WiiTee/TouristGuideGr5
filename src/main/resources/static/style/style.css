@@ -98,7 +98,7 @@ a {
 }
 
 table {
-    margin:auto;
+    margin: auto auto auto 0;
 }
 
 th {
