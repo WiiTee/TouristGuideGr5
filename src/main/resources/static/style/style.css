@@ -106,16 +106,18 @@ th {
     padding-left: 0;
 }
 
-#form-box {
-    width: inherit;
-}
-
 .form-label {
     display: inline-block;
     width: 100px;
 }
 
 input {
+    width: 200px;
+    padding: 2px 5px;
+}
+
+textarea {
+    width: 200px;
 }
 
 footer {
