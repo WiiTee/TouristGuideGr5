@@ -6,50 +6,81 @@
 </head>
 <body>
 
-<!-- MASTER FRAGMENTS-->
-    <div th:fragment="formWrapperUpdate" class="form-wrapper">
-        <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
+    <!--
+    === Wrapper Fragments===
+    Necessary to combine fragments especially with dynamic content
+    -->
+    <div th:fragment="formWrapperUpdate(attraction)" th:object="${attraction}" class="form-wrapper">
+        <form action="#" th:action="@{/attractions/update}" method="post">
             <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameUpdate}"></div>
-            <div th:insert="~{/fragments/_formElements :: formBasics}"></div>
+            <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
             <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
-            <div th:insert="~{/fragments/_formElements :: formUpdateBtn}"></div>
+            <div th:replace="~{/fragments/_formElements :: formUpdateBtn}"></div>
         </form>
     </div>
+
+    <div th:fragment="formWrapperSave(attraction)" th:object="${attraction}" class="form-wrapper">
+        <form action="#" th:action="@{/attractions/save}" method="post">
+            <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
+            <div th:replace="~{/fragments/_formElements :: formNameSave}"></div>
+            <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
+            <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
+            <div th:replace="~{/fragments/_formElements :: formRegisterBtn}"></div>
+        </form>
     </div>
+
+    <!--
+    === Form Fragments===
+    -->
     <form th:fragment="formRegister(attraction)" action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post"></form>
     <form th:fragment="formUpdate(attraction)" action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post"></form>
+
+    <!--
+    === Header Fragments===
+    -->
     <h2 th:fragment="formRegisterHeader">Register an attraction</h2>
     <h2 th:fragment="formUpdateHeader">Update an attraction</h2>
+
+    <!--
+    ===Basic Fragments===
+    -->
     <div th:fragment="formBasics">
-
-    <div>
-        <label for="description">Description</label>
-        <textarea id="description" th:field="*{description}" required></textarea>
-    </div>
-
-    <fieldset>
-        <legend>Choose applicable tags</legend>
-
-        <div th:each="tag : ${tags}" id="tag-checkbox">
-            <label for="checkbox"></label>
-            <input id="checkbox" type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" th:field="*{description}" placeholder="write description" required></textarea>
         </div>
-    </fieldset>
+        <label for="city">Select a city</label>
+        <select id="city" th:field="*{city}">
+            <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"/>
+        </select>
+        <fieldset>
+            <legend>Choose applicable tags</legend>
+
+            <div th:each="tag : ${tags}" id="tag-checkbox">
+                <label for="checkbox" th:text="${tag.name}"></label>
+                <input id="checkbox" type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
+            </div>
+        </fieldset>
     </div>
-    <button th:fragment="formRegisterBtn" type="submit">Register</button>
-    <button th:fragment="formUpdateBtn" type="submit">Update</button>
-    <a th:fragment="formGoBack" href="/attractions" method="get">
-        <button>Go back</button>
-    </a>
 
     <div th:fragment="formNameSave">
         <label for="name">Name</label>
-        <input type="text" id="name" th:field="*{name}" required>
+        <input type="text" id="name" th:field="*{name}" placeholder="write name" required>
     </div>
+
     <div th:fragment="formNameUpdate">
         <label for="name">Name</label>
         <input type="text" id="name" th:field="*{name}" readonly>
     </div>
+
+    <!--
+    === Button Fragments===
+    -->
+    <button th:fragment="formRegisterBtn" type="submit">Register</button>
+    <button th:fragment="formUpdateBtn" type="submit">Update</button>
+    <a th:fragment="formGoBack" href="attractions">
+        <button>Go back</button>
+    </a>
 </body>
 </html>
