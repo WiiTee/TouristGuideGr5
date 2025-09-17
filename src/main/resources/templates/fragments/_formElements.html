@@ -5,9 +5,12 @@
     <title></title>
 </head>
 <body>
+
+<!-- MASTER FRAGMENTS-->
     <div th:fragment="formWrapperUpdate" class="form-wrapper">
         <form action="#" th:action="@{/attractions/save}" th:object="${attraction}" method="post">
             <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
+            <div th:replace="~{/fragments/_formElements :: formNameUpdate}"></div>
             <div th:insert="~{/fragments/_formElements :: formBasics}"></div>
             <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
             <div th:insert="~{/fragments/_formElements :: formUpdateBtn}"></div>
@@ -19,10 +22,6 @@
     <h2 th:fragment="formRegisterHeader">Register an attraction</h2>
     <h2 th:fragment="formUpdateHeader">Update an attraction</h2>
     <div th:fragment="formBasics">
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" th:field="*{name}" required>
-    </div>
 
     <div>
         <label for="description">Description</label>
@@ -40,8 +39,17 @@
     </div>
     <button th:fragment="formRegisterBtn" type="submit">Register</button>
     <button th:fragment="formUpdateBtn" type="submit">Update</button>
-    <a th:fragment="formGoBack" href="attractions">
+    <a th:fragment="formGoBack" href="/attractions" method="get">
         <button>Go back</button>
     </a>
+
+    <div th:fragment="formNameSave">
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" required>
+    </div>
+    <div th:fragment="formNameUpdate">
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" readonly>
+    </div>
 </body>
 </html>
