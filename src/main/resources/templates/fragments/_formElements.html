@@ -7,8 +7,8 @@
 <body>
 
     <!--
-    === Wrapper Fragments===
-    Necessary to combine fragments especially with dynamic content
+    === Master Fragments===
+    Necessary to combine fragments that requires objects passed
     -->
     <div th:fragment="formWrapperUpdate(attraction)" th:object="${attraction}" class="form-wrapper">
         <form action="#" th:action="@{/attractions/update}" method="post">
