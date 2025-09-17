@@ -5,19 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+
+    <!-- HEADER FRAGMENT -->
     <header th:fragment="header">
         <img id="header-background-image" src="/images/headerImage.webp" alt="Illustration of central Copenhagen">
         <h1>TOURIST GUIDE</h1>
     </header>
 
+    <!-- NAV FRAGMENT -->
     <nav id="nav-container" th:fragment="topNav">
         <nav id="top-nav">
             <a href="/">Home</a>
             <a href="/attractions">Attractions</a>
-            <a href="/attractions/Tivoli">Tivoli</a>
         </nav>
     </nav>
 
+    <!-- FOOTER FRAGMENT -->
     <footer th:fragment="footer">
         <p>
             Tourist Guide API<br>

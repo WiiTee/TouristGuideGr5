@@ -31,10 +31,10 @@ header h1 {
     width: 850px;
     height: 300px;
     object-fit: fill;
+    border-color: #364442;
+    border-width: 2px;
     border-left-style: solid;
     border-right-style: solid;
-    border-width: 2px;
-    border-color: #364442;
 }
 
 #top-nav {
@@ -79,6 +79,10 @@ a {
     text-align: center;
 }
 
+.actions button {
+    width: 55px;
+}
+
 .info-box {
     background-color: #A6CDC6;
     padding: 15px;
@@ -98,16 +102,16 @@ a {
 }
 
 table {
-    margin:auto;
+    margin: auto auto auto 0;
 }
 
 th {
     text-align: left;
-    padding-left: 5px;
+    padding-left: 0;
 }
-
-#form-box {
-    width: inherit;
+#name, #description {
+    width: 200px;
+    padding: 2px 5px;
 }
 
 .form-label {
@@ -115,7 +119,8 @@ th {
     width: 100px;
 }
 
-input {
+textarea {
+    width: 200px;
 }
 
 footer {
