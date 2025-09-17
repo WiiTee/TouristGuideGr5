@@ -14,7 +14,7 @@
 <main>
     <section>
         <article class="info-box" th:object="${attraction}">
-            <h2 th:text="*{name}"></h2>
+            <h2 th:text="'Tags: ' + *{name}"></h2>
             <ul>
                 <li th:each="tagList : ${attraction.getSelectedTags}" th:text="${tagList.name}"></li>
             </ul>
