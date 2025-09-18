@@ -38,7 +38,7 @@ header h1 {
 }
 
 a {
-    color: #8a6832;
+    color: #a67830;
 }
 
 #nav-container {
@@ -76,7 +76,7 @@ a {
 
 #top-nav a:hover{
     background-color: #728f8a;
-    color: #4e3811;
+    color: #d69b3e;
 }
 
 /*targeter det første og sidste link i navbar for at afrunde hjørnerne*/
