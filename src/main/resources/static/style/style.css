@@ -79,11 +79,12 @@ a {
     color: #4e3811;
 }
 
-#first-nav-link {
+/*targeter det første og sidste link i navbar for at afrunde hjørnerne*/
+#top-nav a:first-of-type {
     border-bottom-left-radius: 11px;
 }
 
-#last-nav-link {
+#top-nav a:last-of-type {
     border-bottom-right-radius: 11px;
 }
 
