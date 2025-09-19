@@ -80,6 +80,8 @@ public class AttractionRepository {
             return null;
         }
 
+        this.attractions.add(attraction);
+
         return attraction;
     }
 
