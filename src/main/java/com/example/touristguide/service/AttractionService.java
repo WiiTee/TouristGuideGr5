@@ -33,6 +33,7 @@ public class AttractionService {
     }
 
     public void editAttraction(TouristAttraction attraction){
+
         String name = attraction.getName();
         String newDescription = attraction.getDescription();
         ArrayList<Tags> newTags = attraction.getSelectedTags();
