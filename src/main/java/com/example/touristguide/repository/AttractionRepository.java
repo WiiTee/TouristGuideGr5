@@ -67,7 +67,7 @@ public class AttractionRepository {
     public TouristAttraction getAttractionByName(String name) {
 
         for (TouristAttraction attraction : attractions) {
-            if (attraction.getName().toLowerCase().equals(name.toLowerCase())) return attraction;
+            if (attraction.getName().equalsIgnoreCase(name)) return attraction;
         }
 
         return null;
@@ -81,6 +81,7 @@ public class AttractionRepository {
 
     public TouristAttraction editAttraction(String attractionName, String newDescription, String newCity, ArrayList<Tags> newTagList) {
         TouristAttraction attractionToEdit = getAttractionByName(attractionName);
+
         if (attractionToEdit != null) {
             attractionToEdit.setDescription(newDescription);
             attractionToEdit.setCity(newCity);
@@ -92,6 +93,7 @@ public class AttractionRepository {
 
     public TouristAttraction deleteAttraction(String attractionName) {
         TouristAttraction attractionToDelete = getAttractionByName(attractionName);
+
         attractions.remove(attractionToDelete);
 
         return attractionToDelete;
