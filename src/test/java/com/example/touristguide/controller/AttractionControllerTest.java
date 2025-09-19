@@ -10,8 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(AttractionController.class)
 class AttractionControllerTest {
@@ -30,7 +29,7 @@ class AttractionControllerTest {
     }
 
     @Test
-    void shouldShowAttraction() throws Exception {
+    void shouldShowAttractionByName() throws Exception {
 
         TouristAttraction attraction = new TouristAttraction();
         attraction.setName("Tivoli");
@@ -39,6 +38,7 @@ class AttractionControllerTest {
 
         mockMvc.perform(get("/attractions/tivoli"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("showAttraction"));
+                .andExpect(view().name("showAttraction"))
+                .andExpect(model().attribute("byName", attraction));
     }
 }
