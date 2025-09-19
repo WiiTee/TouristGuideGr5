@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Tourist Information</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" th:href="@{/style/style.css}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
-<body class="center">
-<header>
-    <img id="header-background-image" src="images/headerImage.webp" alt="Illustration of central Copenhagen">
-    <h1>TOURIST GUIDE</h1>
-</header>
+<body>
+<header th:replace="~{/fragments/_commonElements :: header}"></header>
+<nav th:replace="~{/fragments/_commonElements :: topNav}"></nav>
 <main>
+<section>
     <article class="info-box">
         <h2>GENERAL INFORMATION</h2>
         <hr>
-        <p>We primarily concern ourselves with the Copenhagen area and Zealand.
+        <p>We primarily concern ourselves with Denmark.
             You will find the many attractions in the above links including but
             not limited to:
         </p>
@@ -60,24 +59,8 @@
         </ul>
         <p>Should you require assistance from the police you can visit site or find one of the many police stations maps</p>
     </article>
-
-    <article class="info-box">
-        <h2>ENDPOINT REQUESTS</h2>
-        <hr>
-        <nav>
-            <ul>
-                <li><a href="/attractions" target="_blank">GET http://localhost:8080/attractions</a></li>
-                <li><a href="/attractions/tivoli" target="_blank">GET http://localhost:8080/attractions/tivoli</a></li>
-            </ul>
-        </nav>
-    </article>
+</section>
 </main>
-<footer>
-    <p>
-        Tourist Guide API<br>
-        Tlf. 00 00 00 00 <br>
-        CVR-Nummer 00000000
-    </p>
-</footer>
+<footer th:replace="~{/fragments/_commonElements :: footer}"></footer>
 </body>
 </html>

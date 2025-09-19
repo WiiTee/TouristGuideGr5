@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!-- HEADER FRAGMENT -->
+    <header th:fragment="header">
+        <img id="header-background-image" src="/images/headerImage.webp" alt="Illustration of central Copenhagen">
+        <h1>TOURIST GUIDE</h1>
+    </header>
+
+    <!-- NAV FRAGMENT -->
+    <div id="nav-container" th:fragment="topNav">
+        <nav id="top-nav">
+            <a href="/">Home</a>
+            <a href="/attractions">Attractions</a>
+        </nav>
+    </div>
+
+    <!-- FOOTER FRAGMENT -->
+    <footer th:fragment="footer">
+        <p>
+            Tourist Guide API<br>
+            Tlf. 00 00 00 00 <br>
+            CVR-Nummer 00000000
+        </p>
+    </footer>
+</body>
+</html>

@@ -3,41 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="/style/style.css" rel="stylesheet">
+    <link th:href="@{/style/style.css}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="center">
-        <article id="form-box" class="info-box">
-            <form action="#" th:action="@{/attractions/update}" th:object="${attraction}" method="post">
-                <div>
-                    <label for="name" class="form-label">Name:</label>
-                    <input id="name" type="text" th:field="*{name}" readonly>
-                </div>
-                <div>
-                    <label for="description" class="form-label">Description:</label>
-                    <input id="description" type="text" th:field="*{description}">
-                </div>
-
-                <div>
-                    <label for="city">Select a city</label>
-                    <select id="city" th:field="*{city}">
-                        <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"/>
-                    </select>
-                </div>
-
-<!--            Har ændret containeren for checkboxes til et mere semantisk korrekt tag
-                Det forsager at vores checkboxes kommer under hinanden, men det er nemt at fikse med CSS-->
-                <fieldset id="checkboxes">
-                    <div th:each="tag : ${tags}">
-                        <label for="checkbox" th:for="${tag.name}" th:text="${tag.name}"></label>
-                        <input id="checkbox" type="checkbox" th:id="${tag.name}" th:field="*{selectedTags}" th:value="${tag}" th:attrappend="checked=${attraction.getSelectedTags.contains(tag.name)}">
-                    </div>
-                </fieldset>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+<header th:replace="~{/fragments/_commonElements :: header}"></header>
+<nav th:replace="~{/fragments/_commonElements :: topNav}"></nav>
+<main>
+    <section>
+        <article class="info-box">
+            <div th:replace="~{/fragments/_formElements :: formWrapperUpdate(attraction=${attraction})}"></div>
         </article>
     </section>
+</main>
+<footer th:replace="~{/fragments/_commonElements :: footer}"></footer>
 </body>
 </html>

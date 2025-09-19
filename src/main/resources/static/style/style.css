@@ -3,21 +3,18 @@ body {
     color: #16404D;
     background-color: #FBF5DD;
     box-sizing: border-box;
+    max-width: 850px;
+    margin: auto;
 }
 
 * {
     box-sizing: inherit;
 }
 
-.center {
-    max-width: 850px;
-    margin: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 header {
     text-align: center;
+    width: inherit;
+    height: 300px;
 }
 
 header h1 {
@@ -34,16 +31,56 @@ header h1 {
     width: 850px;
     height: 300px;
     object-fit: fill;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-color: #364442;
+    border-width: 2px;
+    border-left-style: solid;
+    border-right-style: solid;
 }
 
-div {
-    width: 100%;
+#top-nav {
+    text-align: center;
+}
+
+#nav-container {
+    background-color: #A6CDC6;
+    margin-bottom: 20px;
+    padding: 5px 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-color: #364442;
 }
 
 a {
     color: #8a6832;
+}
+
+#top-nav a {
+    display: inline-block;
+    width: 100px;
+    background-color: #FBF5DDFF;
+    text-decoration: none;
+    height: 25px;
+}
+
+#top-nav a:hover{
+    background-color: #DDA853;
+    color: #4e3811;
+}
+
+.actions {
+    display: inline-block;
+    width: 64px;
+    text-align: center;
+}
+
+.actions button {
+    width: 55px;
 }
 
 .info-box {
@@ -51,6 +88,9 @@ a {
     padding: 15px;
     margin-top: 20px;
     border-radius: 25px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #364442;
 }
 
 .info-box hr {
@@ -61,8 +101,22 @@ a {
     margin: 5px;
 }
 
-#form-box {
-    width: inherit;
+table {
+    margin: auto auto auto 0;
+}
+
+th {
+    text-align: left;
+    padding-left: 0;
+}
+
+th, td {
+    padding-right: 10px;
+}
+
+#name, #description {
+    width: 200px;
+    padding: 2px 5px;
 }
 
 .form-label {
@@ -70,7 +124,8 @@ a {
     width: 100px;
 }
 
-input {
+textarea {
+    width: 200px;
 }
 
 footer {
@@ -79,6 +134,9 @@ footer {
     margin-top: 20px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #4e3b1e;
 }
 
 .poppins-thin {
