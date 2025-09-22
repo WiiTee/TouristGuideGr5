@@ -66,7 +66,7 @@
 
     <div th:fragment="formNameSave">
         <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" th:field="*{name}" placeholder="write name" required>
+        <input type="text" id="name" th:field="*{name}" placeholder="write name" required maxlength="25">
     </div>
 
     <div th:fragment="formNameUpdate">
