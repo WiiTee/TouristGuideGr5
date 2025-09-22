@@ -6,10 +6,12 @@ import com.example.touristguide.service.AttractionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.util.List;
 
 @Controller
-@RequestMapping("/attractions")
+@RequestMapping("/")
 public class AttractionController {
     private final AttractionService service;
 
@@ -21,33 +23,43 @@ public class AttractionController {
 
     //GET
     @GetMapping
+    public String getIndex(){
+        return "index";
+    }
+
+    @GetMapping("/attractions")
     public String getAttractions(Model model) {
         List<TouristAttraction> touristAttractions = service.getAttractions();
         TouristAttraction attraction = new TouristAttraction();
+
         model.addAttribute("attractionsList", touristAttractions);
         model.addAttribute("attraction", attraction);
+
         return "showAllAttractions";
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/attractions/{name}")
     public String getAttractionsByName(@PathVariable String name, Model model){
 
         TouristAttraction attraction = service.getAttractionByName(name);
+
         model.addAttribute("byName", attraction);
 
         return "showAttraction";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/attractions/add")
     public String addAttraction (Model model) {
         TouristAttraction attractionToAdd = new TouristAttraction();
+
         model.addAttribute("attraction", attractionToAdd);
         model.addAttribute("tags", Tags.values());
         model.addAttribute("cities", this.service.getCities());
+
         return "newAttractionForm";
     }
 
-    @GetMapping("/{name}/edit")
+    @GetMapping("/attractions/{name}/edit")
     public String editAttraction(@PathVariable String name, Model model) {
         TouristAttraction attraction = service.getAttractionByName(name);
         Tags[] tagList = Tags.values();
@@ -63,7 +75,7 @@ public class AttractionController {
         return "updateAttractionForm";
     }
 
-    @GetMapping("/{name}/tags")
+    @GetMapping("/attractions/{name}/tags")
     public String showAttractionTags(@PathVariable String name, Model model){
         TouristAttraction attraction = service.getAttractionByName(name);
 
@@ -78,14 +90,17 @@ public class AttractionController {
 
     //POST
 
-    @PostMapping("/save")
-    public String saveAttraction(@ModelAttribute TouristAttraction attraction){
-        //ArrayList<Tags> selectedTags = attraction.getSelectedTags();
-        service.addAttraction(attraction);
+    @PostMapping("/attractions/save")
+    public String saveAttraction(RedirectAttributes redirectAttributes, @ModelAttribute TouristAttraction attraction){
+
+        if (service.addAttraction(attraction) == null) {
+            redirectAttributes.addFlashAttribute("failedToAddAttraction", true);
+        }
+
         return "redirect:/attractions";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/attractions/update")
     public String updateAttraction(@ModelAttribute TouristAttraction attraction){
 
         service.editAttraction(attraction);
@@ -93,7 +108,7 @@ public class AttractionController {
         return "redirect:/attractions";
     }
 
-    @PostMapping("/delete/{name}")
+    @PostMapping("/attractions/delete/{name}")
     public String deleteAttraction(@PathVariable String name) {
 
         service.deleteAttraction(name);
