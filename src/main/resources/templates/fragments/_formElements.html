@@ -10,7 +10,7 @@
     === Master Fragments===
     Necessary to combine fragments that requires objects passed
     -->
-    <div th:fragment="formWrapperUpdate(attraction)" th:object="${attraction}" class="form-wrapper">
+    <div th:fragment="formWrapperUpdate(attraction, pageRef)" th:object="${attraction}" class="form-wrapper">
         <form action="#" th:action="@{/attractions/update}" method="post">
             <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameUpdate}"></div>
@@ -24,6 +24,19 @@
         <form action="#" th:action="@{/attractions/save}" method="post">
             <div th:insert="~{/fragments/_formElements ::formRegisterHeader}"></div>
             <div th:replace="~{/fragments/_formElements :: formNameSave}"></div>
+            <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
+            <div th:replace="~{/fragments/_formElements :: formSubmitBtn}"></div>
+        </form>
+        <div th:insert="~{/fragments/_formElements :: formGoBack}"></div>
+    </div>
+
+    <div th:fragment="formWrapperUpdate(attraction, pageRef)" th:object="${attraction}" class="form-wrapper">
+        <form action="#" th:action="@{/attractions/update}" method="post">
+            <h2 th:if="@{pageRef = newAttraction}">Register an attraction</h2>
+            <h2 th:if="@{pageRef = updateAttraction}">Update an attraction</h2>
+
+            <div th:insert="~{/fragments/_formElements ::formUpdateHeader}"></div>
+            <div th:replace="~{/fragments/_formElements :: formNameUpdate}"></div>
             <div th:replace="~{/fragments/_formElements :: formBasics}"></div>
             <div th:replace="~{/fragments/_formElements :: formSubmitBtn}"></div>
         </form>

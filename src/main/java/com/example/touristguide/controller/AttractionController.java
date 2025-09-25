@@ -49,12 +49,13 @@ public class AttractionController {
     }
 
     @GetMapping("/attractions/add")
-    public String addAttraction (Model model) {
+    public String addAttraction (Model model, @RequestParam("pageRef") String pageRef) {
         TouristAttraction attractionToAdd = new TouristAttraction();
 
         model.addAttribute("attraction", attractionToAdd);
         model.addAttribute("tags", Tags.values());
         model.addAttribute("cities", this.service.getCities());
+        model.addAttribute("pageRef", pageRef);
 
         return "newAttractionForm";
     }
