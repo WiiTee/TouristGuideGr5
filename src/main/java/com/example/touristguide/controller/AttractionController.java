@@ -49,7 +49,7 @@ public class AttractionController {
     }
 
     @GetMapping("/attractions/add")
-    public String addAttraction (Model model, @RequestParam("pageRef") String pageRef) {
+    public String addAttraction (Model model, @RequestParam(value = "pageRef", required = false, defaultValue = "newAttraction") String pageRef) {
         TouristAttraction attractionToAdd = new TouristAttraction();
 
         model.addAttribute("attraction", attractionToAdd);
@@ -61,7 +61,7 @@ public class AttractionController {
     }
 
     @GetMapping("/attractions/{name}/edit")
-    public String editAttraction(@PathVariable String name, Model model) {
+    public String editAttraction(@PathVariable String name, Model model, @RequestParam(value = "pageRef") String pageRef) {
         TouristAttraction attraction = service.getAttractionByName(name);
         Tags[] tagList = Tags.values();
 
@@ -69,9 +69,14 @@ public class AttractionController {
             throw new IllegalArgumentException("Attraction does not exist");
         }
 
+        if (pageRef == null) {
+            pageRef = "updateAttraction";
+        }
+
         model.addAttribute("attraction", attraction);
         model.addAttribute("tags", tagList);
         model.addAttribute("cities", this.service.getCities());
+        model.addAttribute("pageRef", pageRef);
 
         return "updateAttractionForm";
     }
