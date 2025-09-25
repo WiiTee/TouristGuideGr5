@@ -48,8 +48,10 @@ public class AttractionController {
         return "showAttraction";
     }
 
+    //Includes a fallback measure in case pageRef is not send required = false, defaultValue = "newAttraction"
     @GetMapping("/attractions/add")
-    public String addAttraction (Model model, @RequestParam(value = "pageRef", required = false, defaultValue = "newAttraction") String pageRef) {
+    public String addAttraction (Model model,
+                                 @RequestParam(value = "pageRef", required = false, defaultValue = "newAttraction") String pageRef) {
         TouristAttraction attractionToAdd = new TouristAttraction();
 
         model.addAttribute("attraction", attractionToAdd);
@@ -60,17 +62,15 @@ public class AttractionController {
         return "newAttractionForm";
     }
 
+    //Includes a fall back in case pageRef is not send required = false, defaultValue = "updateAttraction"
     @GetMapping("/attractions/{name}/edit")
-    public String editAttraction(@PathVariable String name, Model model, @RequestParam(value = "pageRef") String pageRef) {
+    public String editAttraction(@PathVariable String name, Model model,
+                                 @RequestParam(value = "pageRef", required = false, defaultValue = "updateAttraction") String pageRef) {
         TouristAttraction attraction = service.getAttractionByName(name);
         Tags[] tagList = Tags.values();
 
         if(attraction == null){
             throw new IllegalArgumentException("Attraction does not exist");
-        }
-
-        if (pageRef == null) {
-            pageRef = "updateAttraction";
         }
 
         model.addAttribute("attraction", attraction);
